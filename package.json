@@ -32,5 +32,9 @@
     "Jobs_website"
   ],
   "author": "Luteya Coulston",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.4"
+  }
 }

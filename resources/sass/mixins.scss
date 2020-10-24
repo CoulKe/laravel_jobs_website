@@ -1,0 +1,38 @@
+@mixin fadeInSubmit {
+    input[type="submit"] {
+      border: 1px solid $brown;
+      color: $brown;
+      background-color: #fff;
+      font-weight: 600;
+    }
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+      background-color: $brown;
+      font-weight: 500;
+      color: #fff;
+      animation-timing-function: ease-in-out;
+      transition-duration: 500ms;
+    }
+  }
+  @mixin inputFocus {
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border: 1px solid $brown;
+    }
+  }
+  
+  @mixin searchField {
+    @include inputFocus;
+    @include fadeInSubmit;
+    
+    input {
+      padding: 0.5rem;
+      margin: 10px 0px;
+    }
+    input[type="submit"] {
+      margin-top: 8px;
+      width: 100%;
+    }
+  }
+  
