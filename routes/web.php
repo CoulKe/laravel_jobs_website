@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/jobs',[JobController::class, 'index']);
+Route::get('jobs',[JobController::class, 'index']);
+Route::get('jobs/{id}',[JobController::class, 'show'])->where(['id'=>'[0-9]+']);
