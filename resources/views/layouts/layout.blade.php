@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
     <!-- Styles -->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
     <title>Jobs website | @yield('title')</title>
 </head>
 
@@ -14,30 +14,12 @@
     <nav>
         <div class="container nav">
             <p id="site-title"><a href="index">Job search</a></p>
-            <img src="./assets/images/hamburger.png" alt="menu" id="menu">
             <ul>
-            <li id="cancelMenu"><a href="#">&times;</a></li>
                 <li><a class="link" href="/">Home</a></li>
                 <li><a class="link" href="/jobs">Jobs</a></li>
                 <li><a class="link" href="/employers">Employers</a></li>
                 <li><a class="link" href="/candidates">Candidates</a></li>
-                <?php
-                if (isset($_SESSION['password'])) {
-                    echo '<div id="join">Account
-                <div class="dropdown-content">
-                    <a href="profile">Profile</a>
-                    <a href="logout">Logout</a>
-                </div>
-            </div>';
-                } else {
-                    echo '<div id="join">Join
-                <div class="dropdown-content">
-                    <a href="login">Login</a>
-                    <a href="register">Register</a>
-                </div>
-            </div>';
-                }
-                ?>
+               
             </ul>
         </div>
     </nav>
@@ -84,7 +66,6 @@
             <p>2020 &copy</p>
         </div>
     </footer>
-    <script src="./assets/js/menu.js"></script>
 </body>
 
 </html>
