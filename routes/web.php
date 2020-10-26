@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 Route::get('/jobs',[JobController::class, 'index']);
 Route::get('/jobs/{id}',[JobController::class, 'show']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
