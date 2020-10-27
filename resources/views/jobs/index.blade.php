@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 @section('title', 'jobs')
 
 @section('content')
+@if (count($collection) <= 0)
+    <h1 class="text-center pt-5">Check later, there are no jobs at the moment</h1>
+@endif
     @foreach ($collection as $job)
     <div class="job_card">
         <p class="company_name">
