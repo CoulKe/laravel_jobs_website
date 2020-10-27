@@ -1,5 +1,6 @@
 @extends('layouts.layout')
-
+@section('title', 'employers')
+    
 @section('content')
 <div class="container candidates-page">
     <aside>
