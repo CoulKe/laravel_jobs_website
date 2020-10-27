@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,7 @@ Route::get('/candidates',function(){
     
     return view('candidates', ['candidates'=>$candidates]);
 });
+Route::get('/profile/{username}',[ProfileController::class, 'show']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
