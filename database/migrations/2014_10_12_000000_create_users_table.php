@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->char('position',10);
             $table->string('password');
+            $table->integer('rate')->default(0);
+            $table->char('skills',150)->default('Not listed');
+            $table->text('profile_pic')->nullable();
+            $table->text('about')->default('Not listed');
             $table->rememberToken();
             $table->timestamps();
         });
