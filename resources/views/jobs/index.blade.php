@@ -13,4 +13,5 @@
         <p class="job_description"><b>Description:</b>{{ $job->description }}</p>
     </div>
     @endforeach
+    {{ $collection->links() }}
 @endsection
