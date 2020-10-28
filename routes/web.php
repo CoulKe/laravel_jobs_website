@@ -31,7 +31,9 @@ Route::get('/candidates',function(){
     
     return view('candidates', ['candidates'=>$candidates]);
 });
+Route::get('/profile',[ProfileController::class, 'show'])->middleware('auth');
 Route::get('/profile/{username}',[ProfileController::class, 'show']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
