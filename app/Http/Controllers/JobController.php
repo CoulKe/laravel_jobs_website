@@ -14,7 +14,7 @@ class JobController extends Controller
         $collection = DB::table('jobs')
         ->join('users','user_id','=','users.id')
         ->select('*')
-        ->get();
+        ->paginate(5);
         return view('jobs.index', [
             'collection' => $collection,
         ]);
