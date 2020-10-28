@@ -8,7 +8,7 @@
     @foreach ($collection as $job)
     <div class="job_card">
         <p class="company_name">
-            <strong><a href={{ "profile?username=".$job->name }}>
+            <strong><a href={{ "profile/".$job->username }}>
             Company:</a></strong>{{ $job->company }}</p>
         <p class="job_description"><b>Description:</b>{{ $job->description }}</p>
     </div>
