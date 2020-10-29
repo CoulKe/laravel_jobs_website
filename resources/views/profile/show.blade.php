@@ -14,12 +14,30 @@
                 <li><a href="#about">About</a></li>
                 {{ $user->position === 'candidate' ? '<li><a href="#skills">Skills</a></li>' : '' }}
                 <li><a href="#contact">Contact</a></li>
+                
+                @auth
+                  @if ($user->id === Auth::id())
+                        @if ($user->position === 'employer')
+                            <li><a href="#post_job">Post job</a></li>
+                        @endif
+                   <li><a href="#testify">Testify</a></li>
+                  @endif
+                @endauth
+
             </ul>
         </section>
         <div class="profile">
             <div class="profile-center">
                 <img src="..{{ $user->profile_pic ?? '/assets/user_images/default.png' }}" alt={{ $user->username }} class="profile_pic"> <br>
-                <p class="profile_name">{{ $user->name ?? '' }}</p>        
+                <p class="profile_name">{{ $user->name ?? '' }}</p>
+                <form method="post" id="upload-profile" enctype="multipart/form-data">
+                    @csrf
+                    <label for="Upload">Add profile picture: </label> <br>
+                    <input type="file" name="profile_pic"> <br>
+                    <input type="submit" name="upload_pic" value="submit" id="submit">
+                </form>
+                <a href="file_upload" id="add-pic-link">Add profile picture</a> <br/>
+                <a href="profile_details">edit details</a>
             </div>
         </div>
 
@@ -40,15 +58,17 @@
 
             @if ($user->id === Auth::id())
             <form method="POST" id="testify" class="testimonial_form">
+                @csrf
                 <legend>Testimonial form</legend>
                 <label for="Testimonial">Testimonial:</label> <br>
                 <textarea name="testimonial" cols="30" rows="10"></textarea> <br>
-                <input type="submit" value="Share testimonial">
+                <input type="submit" name="testimonial" value="Share testimonial">
             </form>
             @endif
 
             @if ($user->id === Auth::id())
-            <form method="POST" id="post_job" class="job_post_form">
+            <form method="POST" action="" id="post_job" class="job_post_form">
+                @csrf
                 <legend>Fill this to post job</legend>
                 <label for="Company name">Company name:</label> <br>
                 <input type="text" name="company_name"> <br>
