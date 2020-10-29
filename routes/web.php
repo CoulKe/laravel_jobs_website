@@ -32,7 +32,9 @@ Route::get('/candidates',function(){
     return view('candidates', ['candidates'=>$candidates]);
 });
 Route::get('/profile',[ProfileController::class, 'show'])->middleware('auth');
+Route::post('/profile',[ProfileController::class, 'store'])->middleware('auth');
 Route::get('/profile/{username}',[ProfileController::class, 'show']);
+Route::post('/profile/{username}',[ProfileController::class, 'store']);
 
 Auth::routes();
 
