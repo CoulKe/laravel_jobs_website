@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'job')
+@section('title', $job->description)
 
 @section('content')
 <div class="job_card">

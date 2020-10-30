@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'profile')
+@section('title', $user->first()->name)
 @php
     $unlisted = '<p>Not listed</p>';
 @endphp
@@ -28,7 +28,7 @@
         </section>
         <div class="profile">
             <div class="profile-center">
-                <img src="..{{ $user->profile_pic ?? '/assets/user_images/default.png' }}" alt={{ $user->username }} class="profile_pic"> <br>
+                <img src="" alt={{ $user->username }} class="profile_pic"> <br>
                 <p class="profile_name">{{ $user->name ?? '' }}</p>
                 <form method="post" id="upload-profile" enctype="multipart/form-data">
                     @csrf
