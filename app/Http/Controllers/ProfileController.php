@@ -33,14 +33,23 @@ class ProfileController extends Controller
         $job->save();
        }
 
-       if (isset($_POST['testimonial'])) {
-        //    $testimonial = new Testimonial();
-       }
+        /**
+         * Upload profile picture, if is valid and delete
+         * the old photo if it existed
+         */
+        if ($request->has('profile_pic')) {
+            $previous_image = User::find(Auth::id())->profile_pic;
+            $filename = $request->file('profile_pic')->store('user_images');
+
+            if ($request->file('profile_pic')->isValid()) {
+                User::where('id', Auth::id())->update(['profile_pic' => $filename]);
+                Storage::delete($previous_image);
+            }
        if ($_POST['upload_pic']) {
            $user = new User();
            $user->profile_pic = request('profile_pic');
            error_log($user);
-       }
+        }
         return redirect('/profile');
     }
 }
