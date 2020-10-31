@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', $user->first()->name)
+@section('title', $user->first()->name ?? '')
 @php
     $unlisted = '<p>Not listed</p>';
 @endphp
