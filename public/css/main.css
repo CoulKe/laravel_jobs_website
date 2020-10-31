@@ -557,6 +557,7 @@ nav ul li .nav-link:hover {
   margin-top: 8px;
   width: 150px;
   height: 150px;
+  object-fit: cover;
   border-radius: 50%;
   box-shadow: 0px 0px 2px #a52a2a;
 }
