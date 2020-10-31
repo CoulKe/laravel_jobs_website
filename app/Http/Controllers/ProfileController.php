@@ -14,16 +14,38 @@ class ProfileController extends Controller
      * If username is not set, find the data set using the
      * authenticated user
      */
-    public function show($username = '')
+    public function index($username = '')
     {
         if ($username !== '') {
             $user = User::all()->whereIn('username', $username);
         } else {
             $user = User::all()->whereIn('id', Auth::id());
         }
-        return view('profile.show', ['user' => $user]);
+        return view('profile.index', ['user' => $user]);
     }
 
+    /**
+     * Edit profile details
+     */
+    public function edit(){
+        $user = User::all()->where('id', Auth::id())->first();
+        return view('profile.edit',['user' => $user]);
+    }
+    /**
+     * Update profile details
+     */
+    public function update(){
+        
+        $user = User::find(Auth::id());
+        $user->update([
+                'name' => request('name'),
+            'email' => request('email'),
+            'about' => request('about'),
+            'rate' => request('rate'),
+            'skills' => request('skills'),
+        ]);
+        return redirect('/profile');
+    }
     /**
      * Save data into the database.
      *@return redirect to avoid resubmission
