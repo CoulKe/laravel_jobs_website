@@ -31,6 +31,7 @@
             <div class="profile-center">
                 <img src="/storage/user_images/{{$user->profile_pic ?? 'default.png' }}" alt={{ $user->username }} class="profile_pic"> <br>
                 <p class="profile_name">{{ $user->name ?? '' }}</p>
+                @if ($user->id === Auth::id())
                 <form method="post" id="upload-profile" enctype="multipart/form-data">
                     @csrf
                     <label for="Upload">Add profile picture: </label> <br>
@@ -39,6 +40,7 @@
                 </form>
                 <a href="file_upload" id="add-pic-link">Add profile picture</a> <br/>
                 <a href="profile_details">edit details</a>
+                @endif
             </div>
         </div>
 
@@ -55,6 +57,7 @@
                 <h1 id="skills">Skills</h1>
                 <p>{{ $user->skills }}</p>
             @endif
+            <h1 id="contact">Contact</h1>
             <p>Email: <a href="mailto: {{ $user->email }}">{{ $user->email }}</a> </p>
 
             @if ($user->id === Auth::id())
