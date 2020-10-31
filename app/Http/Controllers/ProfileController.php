@@ -48,11 +48,15 @@ class ProfileController extends Controller
          */
         if ($request->has('profile_pic')) {
             $previous_image = User::find(Auth::id())->profile_pic;
-            $filename = $request->file('profile_pic')->store('user_images');
+
+            $extension = $request->file('profile_pic')->getClientOriginalExtension();
+            
+            $newFileName = Auth::user()->username.'_'.date('his').'.'.$extension;
+            $file = $request->file('profile_pic')->storeAs('public/user_images', $newFileName);
 
             if ($request->file('profile_pic')->isValid()) {
-                User::where('id', Auth::id())->update(['profile_pic' => $filename]);
-                Storage::delete($previous_image);
+                User::where('id', Auth::id())->update(['profile_pic' => $newFileName]);
+                Storage::delete("public/user_images/$previous_image");
             }
         }
         return redirect('/profile');
