@@ -29,7 +29,7 @@
         </section>
         <div class="profile">
             <div class="profile-center">
-                <img src="/storage/user_images/{{$user->profile_pic}}" alt={{ $user->username }} class="profile_pic"> <br>
+                <img src="/storage/user_images/{{$user->profile_pic ?? 'default.png' }}" alt={{ $user->username }} class="profile_pic"> <br>
                 <p class="profile_name">{{ $user->name ?? '' }}</p>
                 <form method="post" id="upload-profile" enctype="multipart/form-data">
                     @csrf
