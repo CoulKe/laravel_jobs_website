@@ -8,6 +8,7 @@
      <h1>Sorry, that user doesn't exist</h1>
  @else
         @foreach ($user as $user)
+    
         <section class="sub-menu">
             <ul>
                 {{ $user->position === 'candidate' ? '<li><a href="#rate">Rate</a></li>' : '' }}
@@ -28,7 +29,7 @@
         </section>
         <div class="profile">
             <div class="profile-center">
-                <img src="" alt={{ $user->username }} class="profile_pic"> <br>
+                <img src="/storage/user_images/{{$user->profile_pic}}" alt={{ $user->username }} class="profile_pic"> <br>
                 <p class="profile_name">{{ $user->name ?? '' }}</p>
                 <form method="post" id="upload-profile" enctype="multipart/form-data">
                     @csrf
