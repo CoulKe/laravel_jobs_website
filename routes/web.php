@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +20,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jobs = DB::table('jobs')
+    ->join('users','user_id','=','users.id')
+    ->latest('jobs.created_at')
+    ->limit(4)
+    ->get();
+
+    return view('welcome',[
+        'jobs' => $jobs,
+    ]);
 });
 
 Route::group(['prefix' => 'jobs'], function () {
