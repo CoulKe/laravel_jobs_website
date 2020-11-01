@@ -52,28 +52,23 @@
     </section>
     <section id="testimonials_section">
         <h1 class="title">Testimonials</h1>
-        <div class="carousel">
+        @if (count($testimonials) > 0)
+            <div class="carousel">
             <img src="./assets/svg/left.svg" id="left-arr" alt="Left arrow">
+            @foreach ($testimonials as $testimony)
             <div class="testimony">
-                <img src="njeriredCartoon.png" alt="" class="testimony-image">
+                <img src="{{ $testimony->profile_pic }}" alt="{{ $testimony->name }}" class="testimony-image">
                 <div class="testimony-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa odio, minus aliquam voluptatum perferendis earum.
+                    {{ $testimony->testimonial }}
                 </div>
             </div>
-            <div class="testimony">
-                <img src="mjInnocent.png" class="testimony-image" alt="testimonia">
-                <div class="testimony-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa odio, minus aliquam voluptatum perferendis earum.
-                </div>
-            </div>
-            <div class="testimony">
-                <img src="name.png" alt="" class="testimony-image">
-                <div class="testimony-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa odio, minus aliquam voluptatum perferendis earum.
-                </div>
-            </div>
+            @endforeach
             <img src="./assets/svg/right.svg" id="right-arr" alt="Right arrow">
         </div>
+        @else
+        <h1>There are currently no testimonials, click <a href="profile#testify">here</a> to testify</h1>
+        @endif
+        
     </section>
 </div>
 
