@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Testimonials as Testify;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -62,6 +63,15 @@ class ProfileController extends Controller
             $job->description = request('job_description');
             $job->user_id = Auth::id();
             $job->save();
+        }
+        /**
+         * Post testimonial
+         */
+        if (isset($_POST['testimonial'])) {
+         $testify = new Testify();
+         $testify->user_id = Auth::id();
+         $testify->testimonial = request('testimony');
+         $testify->save();
         }
 
         /**
