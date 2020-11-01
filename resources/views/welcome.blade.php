@@ -57,7 +57,7 @@
             <img src="./assets/svg/left.svg" id="left-arr" alt="Left arrow">
             @foreach ($testimonials as $testimony)
             <div class="testimony">
-                <img src="{{ $testimony->profile_pic }}" alt="{{ $testimony->name }}" class="testimony-image">
+                <img src="/storage/user_images/{{$user->profile_pic ?? 'default.png' }}" alt="{{ $testimony->name }}" class="testimony-image">
                 <div class="testimony-text">
                     {{ $testimony->testimonial }}
                 </div>
