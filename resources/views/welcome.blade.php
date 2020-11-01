@@ -21,7 +21,7 @@
         <div class="jobs">
             @foreach ($jobs as $job)
             <div class="latest_job">
-                <div class="image"></div>
+                <img src="/storage/user_images/{{$job->profile_pic ?? 'default.png' }}" class="image" alt="{{ $job->name }}">
                 <div class="company_title">
                     Company: <a href={{ "profile/.$job->username " }}> {{ $job->company }}</a>
                 </div>
