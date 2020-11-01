@@ -86,7 +86,11 @@
                     <div id="other_links">
                         <a href="" class="quick_link">Pricing</a>
                         <a href="" class="quick_link">Contacts</a>
-                        <a href="" class="quick_link">Post job</a>
+                        @auth
+                            @if (Auth::user()->position === 'employer')
+                            <a href="/profile#post_job" class="quick_link">Post job</a>
+                            @endif
+                        @endauth
                     </div>
                 </div>
 
