@@ -66,7 +66,7 @@
                 @csrf
                 <legend>Testimonial form</legend>
                 <label for="Testimonial">Testimonial:</label> <br>
-                <textarea name="testimonial" cols="30" rows="10"></textarea> <br>
+                <textarea name="testimony" cols="30" rows="10"></textarea> <br>
                 <input type="submit" name="testimonial" value="Share testimonial">
             </form>
             @endif
