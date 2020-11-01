@@ -25,9 +25,14 @@ Route::get('/', function () {
     ->latest('jobs.created_at')
     ->limit(4)
     ->get();
+    $testimonials = DB::table('testimonials')
+    ->join('users','user_id','=','users.id')
+    ->limit(6)
+    ->get();
 
     return view('welcome',[
         'jobs' => $jobs,
+        'testimonials' => $testimonials,
     ]);
 });
 
