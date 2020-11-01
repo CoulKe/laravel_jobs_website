@@ -184,7 +184,7 @@ nav ul li .nav-link:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("../../assets/images/banner.jpg");
+  background-image: url("../../images/banner.jpg");
   background-color: rgba(0, 0, 0, 0.8);
   background-blend-mode: overlay;
   background-repeat: no-repeat;
