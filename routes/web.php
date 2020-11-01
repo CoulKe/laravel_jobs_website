@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/jobs',[JobController::class, 'index']);
-Route::get('/jobs/{id}',[JobController::class, 'show']);
+
+Route::group(['prefix' => 'jobs'], function () {
+    Route::get('/',[JobController::class, 'index']);
+    Route::get('/{id}',[JobController::class, 'show']);
+});
+
 Route::get('/employers',function(){
     $employers = User::all()->whereIn('position','employer');
     
@@ -31,14 +35,17 @@ Route::get('/candidates',function(){
     
     return view('candidates', ['candidates'=>$candidates]);
 });
-Route::get('/profile',[ProfileController::class, 'index'])->middleware('auth');
-Route::post('/profile',[ProfileController::class, 'store'])->middleware('auth');
 
-Route::get('/profile/edit',[ProfileController::class, 'edit'])->middleware('auth');
-Route::post('/profile/edit',[ProfileController::class, 'update'])->middleware('auth');
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('/',[ProfileController::class, 'index'])->middleware('auth');
+    Route::post('/',[ProfileController::class, 'store'])->middleware('auth');
 
-Route::get('/profile/{username}',[ProfileController::class, 'index']);
-Route::post('/profile/{username}',[ProfileController::class, 'store']);
+    Route::get('/edit',[ProfileController::class, 'edit'])->middleware('auth');
+    Route::post('/edit',[ProfileController::class, 'update'])->middleware('auth');
+
+    Route::get('/{username}',[ProfileController::class, 'index']);
+    Route::post('/{username}',[ProfileController::class, 'store']);
+});
 
 Auth::routes();
 
