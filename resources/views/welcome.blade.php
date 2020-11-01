@@ -19,16 +19,17 @@
         <h1 class="title">Latest jobs</h1>
 
         <div class="jobs">
-            {{-- <?php foreach ($jobs_array as $jobs) : ?>
-                <div class="latest_job">
-                    <div class="image"></div>
-                    <div class="company_title">Company: <a href=<?="profile?username=".$jobs['username'];?>>
-                    <?= $jobs['company'] ?></a></div>
-                    <div class="job_description">
-                        Description:<br /> <?= $jobs['description'] ?>.
-                    </div>
+            @foreach ($jobs as $job)
+            <div class="latest_job">
+                <div class="image"></div>
+                <div class="company_title">
+                    Company: <a href={{ "profile/.$job->username " }}> {{ $job->company }}</a>
                 </div>
-            <?php endforeach; ?> --}}
+                <div class="job_description">
+                        Description:<br /> {{ $job->description }}
+                </div>
+            </div>
+            @endforeach
         </div>
         <a href="jobs" class="see_more">Browse more jobs</a>
     </section>
