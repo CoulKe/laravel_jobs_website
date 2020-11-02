@@ -338,3 +338,127 @@ footer {
     }
   }
 }
+// Profile page
+.sub-menu {
+  position: -webkit-sticky; /* needed for ios*/
+  position: sticky;
+  top: 0;
+  background-color: #000000;
+  width: 100%;
+  box-shadow: 0px 0px 4px #111111;
+  z-index: 1;
+  text-align: center;
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-block;
+      padding: 0.5rem;
+      a {
+        text-decoration: none;
+        color: #fff;
+        padding: 0.5rem;
+      }
+    }
+  }
+  @media(max-width: 800px){
+    &{
+      ul{
+        li{
+          padding: 6px 0px 6px 0px;
+        }
+      }
+    }
+  }
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f3;
+
+  .profile-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    .profile_pic {
+      margin-top: 8px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0px 0px 2px brown;
+    }
+    .profile_name {
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+  }
+  .details_section {
+    padding-bottom: 1rem;
+
+    legend {
+      font-weight: 700;
+      font-size: 24px;
+      display: block;
+      padding-top: 2.5rem;
+      text-align: center;
+    }
+    label {
+      font-size: larger;
+    }
+    input,
+    textarea {
+      padding: 0.3rem;
+      margin: 8px 0px;
+    }
+    textarea,
+    input[type="text"] {
+      width: 90%;
+    }
+    input[type="submit"] {
+      width: 91.5%;
+    }
+    p {
+      padding-left: 2rem;
+    }
+    h1 {
+      padding-top: 2.5rem;
+    }
+    h1::before {
+      content: "#";
+      color: brown;
+      opacity: 0.3;
+      padding: 4px;
+    }
+    h1:hover::before {
+      opacity: 0.8;
+    }
+    .testimonial_form, .job_post_form {
+      display: flex;
+      flex-direction: column;
+    }
+    // Desktop
+    @media (min-width: 801px){
+      &{
+        width: 800px;
+      }
+     }
+    //  Mobile
+    @media (max-width: 801px){
+      &{
+        width: 100%;
+        .testimonial_form, .job_post_form{
+          input, textarea{
+            align-self: center;
+          }
+          label{
+            padding-left: 1rem;
+          }
+        }
+      }
+     }
+  }
+}

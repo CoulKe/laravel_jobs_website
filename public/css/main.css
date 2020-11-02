@@ -330,4 +330,120 @@ footer #copyright {
   }
 }
 
+.sub-menu {
+  position: -webkit-sticky;
+  /* needed for ios*/
+  position: sticky;
+  top: 0;
+  background-color: #000000;
+  width: 100%;
+  box-shadow: 0px 0px 4px #111111;
+  z-index: 1;
+  text-align: center;
+}
+.sub-menu ul {
+  list-style-type: none;
+}
+.sub-menu ul li {
+  display: inline-block;
+  padding: 0.5rem;
+}
+.sub-menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+}
+@media (max-width: 800px) {
+  .sub-menu ul li {
+    padding: 6px 0px 6px 0px;
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f3;
+}
+.profile .profile-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: #fff;
+  width: 100%;
+}
+.profile .profile-center .profile_pic {
+  margin-top: 8px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 2px brown;
+}
+.profile .profile-center .profile_name {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.profile .details_section {
+  padding-bottom: 1rem;
+}
+.profile .details_section legend {
+  font-weight: 700;
+  font-size: 24px;
+  display: block;
+  padding-top: 2.5rem;
+  text-align: center;
+}
+.profile .details_section label {
+  font-size: larger;
+}
+.profile .details_section input,
+.profile .details_section textarea {
+  padding: 0.3rem;
+  margin: 8px 0px;
+}
+.profile .details_section textarea,
+.profile .details_section input[type=text] {
+  width: 90%;
+}
+.profile .details_section input[type=submit] {
+  width: 91.5%;
+}
+.profile .details_section p {
+  padding-left: 2rem;
+}
+.profile .details_section h1 {
+  padding-top: 2.5rem;
+}
+.profile .details_section h1::before {
+  content: "#";
+  color: brown;
+  opacity: 0.3;
+  padding: 4px;
+}
+.profile .details_section h1:hover::before {
+  opacity: 0.8;
+}
+.profile .details_section .testimonial_form, .profile .details_section .job_post_form {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 801px) {
+  .profile .details_section {
+    width: 800px;
+  }
+}
+@media (max-width: 801px) {
+  .profile .details_section {
+    width: 100%;
+  }
+  .profile .details_section .testimonial_form input, .profile .details_section .testimonial_form textarea, .profile .details_section .job_post_form input, .profile .details_section .job_post_form textarea {
+    align-self: center;
+  }
+  .profile .details_section .testimonial_form label, .profile .details_section .job_post_form label {
+    padding-left: 1rem;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
