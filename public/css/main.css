@@ -168,4 +168,46 @@ footer #copyright {
   font-weight: 900;
 }
 
+.candidates-page {
+  display: flex;
+  margin-top: 8px;
+}
+.candidates-page .candidates-section {
+  margin-left: 250px;
+}
+.candidates-page .candidates-section .candidate {
+  display: flex;
+  min-width: 250px;
+  margin-bottom: 8px;
+  box-shadow: 0px 0px 2px #111111;
+  padding: 0.5rem;
+}
+.candidates-page .candidates-section .candidate .candidate_image {
+  width: 130px;
+  height: 130px;
+  margin-right: 4px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.candidates-page .candidates-section .candidate .candidate_details {
+  align-self: center;
+}
+.candidates-page .candidates-section .candidate:hover {
+  transform: scale(1.025);
+}
+@media (max-width: 750px) {
+  .candidates-page {
+    flex-direction: column;
+  }
+  .candidates-page input[type=text] {
+    width: 90%;
+  }
+  .candidates-page input[type=submit] {
+    width: 96%;
+  }
+  .candidates-page .candidates-section {
+    margin-left: 0px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
