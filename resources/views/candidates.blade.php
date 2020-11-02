@@ -25,10 +25,10 @@
                 <img src="/storage/user_images/{{$candidate->profile_pic ?? 'default.png' }}" alt={{ $candidate->username }} class='candidate_image'>
             @endif
             <div class="candidate_details">
-                <div class="candidate_name">Name: {{ $candidate->first_name }}</div>
+                <div class="candidate_name">Name: {{ $candidate->name }}</div>
                 <div class="candidate_rate">Rate per hour: {{  $candidate->rate == 0 ? 'Negotiable' : $candidate->rate }}</div>
                 <div class="candidate_skills"> Skills: {{  $candidate->skills == '' ? 'Not listed' : $candidate->skills }} </div>
-                <a href="profile?username={{ $candidate->username }}" >View profile</a>
+                <a href="profile/{{ $candidate->username }}" >View profile</a>
             </div>
         </div>
         @endforeach
