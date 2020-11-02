@@ -19,7 +19,7 @@
         <div class="candidate">
             
             @if (empty($employer->profile_url))
-                <img src="" alt="{{ $employer->name }} " class='candidate_image'>
+                <img src="/storage/user_images/{{$employer->profile_pic ?? 'default.png' }}" alt={{ $employer->username }} class='candidate_image'>
             @endif
             <div class="candidate_details">
                 <div class="candidate_name">Name: {{ $employer->first_name }}</div>
