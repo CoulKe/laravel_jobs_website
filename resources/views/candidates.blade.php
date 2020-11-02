@@ -3,6 +3,9 @@
 
 @section('content')
 <div class="container candidates-page">
+    @if (count($candidates) <= 0)
+            <h1>There are currently no registered candidates</h1>
+@else
     <aside>
         <form action="" method="post">
             <label for="Skills search">Skills search:</label> <br>
@@ -29,6 +32,7 @@
             </div>
         </div>
         @endforeach
+        @endif
     </section>
 </div>
 @endsection
