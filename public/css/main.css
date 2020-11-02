@@ -6,15 +6,70 @@ nav {
   height: 10vh;
 }
 
+footer {
+  background-color: #000000;
+  color: #fff;
+  user-select: none;
+}
 footer #quick_links {
   background-color: #490505;
   color: #fff;
+  display: flex;
 }
-
-#copyright {
-  background-color: #000;
+footer #quick_links .container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  width: 95%;
+  position: relative;
+}
+footer #quick_links .container .links_wrapper {
+  display: flex;
+}
+footer #quick_links .container a {
   color: #fff;
+  text-decoration: none;
+  line-height: 2rem;
+}
+footer #quick_links .container a:hover,
+footer #quick_links .container a:focus {
+  text-decoration: underline;
+}
+footer #quick_links .container #company_links,
+footer #quick_links .container #users_links,
+footer #quick_links .container #newsletter,
+footer #quick_links .container #other_links {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+}
+footer #quick_links .container #newsletter {
+  height: max-content;
+}
+footer #quick_links .container #newsletter h1 {
+  margin-top: 0;
+}
+footer #quick_links .container #newsletter input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+@media (max-width: 650px) {
+  footer #quick_links .container #newsletter {
+    border-bottom: 2px solid grey;
+  }
+}
+@media (max-width: 650px) {
+  footer #quick_links .container {
+    flex-direction: column-reverse;
+  }
+}
+footer #copyright {
   text-align: center;
+  padding: 0.5rem;
 }
 
 #header {
