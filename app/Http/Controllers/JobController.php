@@ -11,12 +11,12 @@ class JobController extends Controller
     //
     public function index()
     {
-        $collection = DB::table('jobs')
+        $jobs = DB::table('jobs')
         ->join('users','user_id','=','users.id')
         ->select('*')
         ->paginate(5);
         return view('jobs.index', [
-            'collection' => $collection,
+            'jobs' => $jobs,
         ]);
     }
     public function show($id){
