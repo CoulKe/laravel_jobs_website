@@ -4,7 +4,7 @@
 @section('content')
 <div class="container candidates-page">
     @if (count($candidates) <= 0)
-            <h1>There are currently no registered candidates</h1>
+            <h1 class="non-existent">There are currently no registered candidates</h1>
 @else
     <aside>
         <form action="" method="post">

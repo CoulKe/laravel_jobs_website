@@ -3,7 +3,7 @@
 
 @section('content')
 @if (count($jobs) <= 0)
-    <h1 class="text-center pt-5">Check later, there are no jobs at the moment</h1>
+    <h1 class="non-existent">Check later, there are no jobs at the moment</h1>
 @endif
     @foreach ($jobs as $job)
     <div class="job_card">

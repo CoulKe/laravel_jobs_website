@@ -5,7 +5,7 @@
 @endphp
 @section('content')
  @if (count($user) <= 0)
-     <h1>Sorry, that user doesn't exist</h1>
+     <h1 class="non-existent">Sorry, that user doesn't exist</h1>
  @else
         @foreach ($user as $user)
     

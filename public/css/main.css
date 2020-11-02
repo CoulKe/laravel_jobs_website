@@ -2,8 +2,17 @@
   text-align: center;
 }
 
+.non-existent {
+  padding: 5px;
+  text-align: center;
+}
+
 nav {
   height: 10vh;
+}
+
+main {
+  min-height: 52vh;
 }
 
 footer {
