@@ -34,7 +34,7 @@
         </div>
         <a href="jobs" class="see_more">Browse more jobs</a>
     </section>
-    <section id="account_info" class="mt-16">
+    <section id="post_or_join" class="mt-16">
         <div id="post_job">
             <h1>Post a job</h1>
             <a href="profile#post_job" id="post_link">Click here</a>
