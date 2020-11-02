@@ -3,7 +3,7 @@
 @section('content')
     
 <div id="header">
-    <div id="header-wrapper">
+    <div id="header__wrapper" class="container-fluid d-flex flex-column justify-content-center text-center">
         <h1 id="banner-intro">Your dream job awaits you</h1>
         <p id="slogan">just one click away</p>
         <form action="jobs" method="get">
@@ -15,25 +15,26 @@
 </div>
 
 <div class="container">
-    <section id="latest_section">
+    <section id="latest__section" class="col text-center">
         <h1 class="title">Latest jobs</h1>
-
-        <div class="jobs">
+        <div class="jobs row justify-content-around">
             @foreach ($jobs as $job)
-            <div class="latest_job">
-                <img src="/storage/user_images/{{$job->profile_pic ?? 'default.png' }}" class="image" alt="{{ $job->name }}">
-                <div class="company_title">
-                    Company: <a href={{ "profile/.$job->username " }}> {{ $job->company }}</a>
-                </div>
-                <div class="job_description">
-                        Description:<br /> {{ $job->description }}
+            <div class="latest__job card col-lg-2 col-md-6 col-sm-12">
+                <img src="/storage/user_images/{{$job->profile_pic ?? 'default.png' }}" class="job__image card-img-top" alt="{{ $job->name }}">
+                <div class="card-body text-left">
+                    <div class="company_title">
+                        Company: <a href={{ "profile/.$job->username " }}> {{ $job->company }}</a>
+                    </div>
+                    <div class="job__description">
+                            Description:<br /> {{ $job->description }}
+                    </div>
                 </div>
             </div>
             @endforeach
         </div>
         <a href="jobs" class="see_more">Browse more jobs</a>
     </section>
-    <section id="post_or_join">
+    <section id="account_info" class="mt-16">
         <div id="post_job">
             <h1>Post a job</h1>
             <a href="profile#post_job" id="post_link">Click here</a>
@@ -54,7 +55,7 @@
         <h1 class="title">Testimonials</h1>
         @if (count($testimonials) > 0)
             <div class="carousel">
-            <img src="./assets/svg/left.svg" id="left-arr" alt="Left arrow">
+            <img src="/svg/left.svg" id="left-arr" alt="Left arrow">
             @foreach ($testimonials as $testimony)
             <div class="testimony">
                 <img src="/storage/user_images/{{$user->profile_pic ?? 'default.png' }}" alt="{{ $testimony->name }}" class="testimony-image">
@@ -63,7 +64,7 @@
                 </div>
             </div>
             @endforeach
-            <img src="./assets/svg/right.svg" id="right-arr" alt="Right arrow">
+            <img src="/svg/right.svg" id="right-arr" alt="Right arrow">
         </div>
         @else
         <h1>There are currently no testimonials, click <a href="profile#testify">here</a> to testify</h1>
@@ -71,5 +72,5 @@
         
     </section>
 </div>
-
+<script src="js/slider.js"></script>
 @endsection

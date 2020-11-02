@@ -71,8 +71,8 @@
     <footer>
 
         <div id="quick_links">
-            <div class="container">
-                <div class="links_wrapper">
+            <div class="container row justify-content-around">
+                <div class="links_wrapper col justify-content-between">
                     <div id="company_links">
                         <a href="" class="quick_link">About us</a>
                         <a href="" class="quick_link">Terms and conditions</a>

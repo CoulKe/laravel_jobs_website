@@ -1,0 +1,114 @@
+// Global
+.title {
+    text-align: center;
+}
+nav {
+    height: 10vh;
+}
+footer{
+  #quick_links {
+    background-color: rgb(73, 5, 5);
+    color: #fff;
+  }
+}
+#copyright{
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+//pages
+#header {
+    height: 90vh;
+    color: #fff;
+
+    &__wrapper {
+        height: 100%;
+        background-image: url("../../images/banner.jpg");
+        background-color: rgba(0, 0, 0, 0.8);
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+#latest__section {
+    .latest__job {
+        box-shadow: 0px 0px 4px #808080;
+        padding: 0px;
+        width: 350px;
+        margin-bottom: 8px;
+        .job__image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+    }
+}
+#testimonials_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+    .carousel {
+      display: flex;
+      justify-content: space-evenly;
+      overflow: hidden;
+      position: relative;
+      padding: 2rem;
+      margin: auto;
+      margin-bottom: 1rem;
+      width: fit-content;
+      border-radius: 8px;
+      box-shadow: 0px 0px 6px #111;
+      user-select: none;
+  
+      #right-arr,
+      #left-arr {
+        height: 40px;
+        position: absolute;
+        top: 45%;
+      }
+  
+      #left-arr {
+        left: 0;
+      }
+  
+      #right-arr {
+        right: 0;
+      }
+    }
+  
+    .testimony {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      width: 500px;
+      height: 250px;
+  
+      &-image {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+  
+      &-text {
+        width: 40%;
+      }
+      &-text::before {
+        content: open-quote;
+        color: brown;
+        font-size: 50px;
+        font-weight: 900;
+      }
+  
+      &-text::after {
+        content: close-quote;
+        color: #a52a2a;
+        display: block;
+        float: right;
+        font-size: 50px;
+        font-weight: 900;
+      }
+    }
+
+  }
