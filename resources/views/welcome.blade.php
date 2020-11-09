@@ -3,7 +3,7 @@
 @section('content')
     
 <div id="header">
-    <div id="header__wrapper" class="container-fluid d-flex flex-column justify-content-center text-center">
+    <div id="header-wrapper">
         <h1 id="banner-intro">Your dream job awaits you</h1>
         <p id="slogan">just one click away</p>
         <form action="jobs" method="get">

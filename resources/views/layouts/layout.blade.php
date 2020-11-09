@@ -10,49 +10,49 @@
     <link rel="stylesheet" href="/css/app.css">
     {{-- Custom css --}}
     <link rel="stylesheet" href="/css/main.css">
-    
+
     <title>Jobs website | @yield('title')</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md">
-        <a class="navbar-brand" href="/">Jobs Search</a>
-        <ul class="nav collapse navbar-collapse justify-content-center">
-            <li class="nav-item">
-                <a href="/" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="/jobs" class="nav-link">Jobs</a>
-            </li>
-            <li class="nav-item">
-                <a href="/employers" class="nav-link">Employers</a>
-            </li>
-            <li class="nav-item">
-                <a href="/candidates" class="nav-link">Candidates</a>
-            </li>
-        </ul>
-        
-        <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
+    <nav>
+        <a href="/" id="site-title">Jobs Search</a>
+        <img src="./images/hamburger.png" alt="menu" id="menu">
+        <div id="compressed-nav">
+            <a href="#" id="cancelMenu">&times;</a>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/jobs">Jobs</a>
+                </li>
+                <li>
+                    <a href="/employers">Employers</a>
+                </li>
+                <li>
+                    <a href="/candidates">Candidates</a>
+                </li>
+            </ul>
+
+            <ul>
+                <!-- Authentication Links -->
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <li>
+                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
+                <li>
+                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
                 @endif
                 @endguest
                 @auth
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+                <li>
+                    <a href="#" role="button">Profile</a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                    <div>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -63,8 +63,10 @@
                     </div>
                 </li>
                 @endauth
-        </ul>
+            </ul>
+        </div><!--compressed nav-->
     </nav>
+    
     <main>
         @yield('content')
     </main>
@@ -90,9 +92,9 @@
                         <a href="" class="quick_link">Pricing</a>
                         <a href="" class="quick_link">Contacts</a>
                         @auth
-                            @if (Auth::user()->position === 'employer')
-                            <a href="/profile#post_job" class="quick_link">Post job</a>
-                            @endif
+                        @if (Auth::user()->position === 'employer')
+                        <a href="/profile#post_job" class="quick_link">Post job</a>
+                        @endif
                         @endauth
                     </div>
                 </div>
@@ -112,6 +114,8 @@
             <p>2020 &copy</p>
         </div>
     </footer>
+    {{-- Javascript --}}
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>

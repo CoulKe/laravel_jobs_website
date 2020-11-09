@@ -7,12 +7,12 @@
         <h1 class="non-existent">There are currently no registered employers</h1>
         @else
     <aside>
-        <form action="" method="post">
+        <form action="" method="get">
             <label for="Skills search">Skills search:</label> <br>
-            <input type="text" name="skills_search" placeholder="type keywords"> <br>
+            <input type="text" name="skills" placeholder="type keywords"> <br>
             <label for="Rate">Rate per hour (USD):</label> <br>
-            <input type="text" name="rate_search" placeholder="search rate"> <br>
-            <input type="submit" value="Search">
+            <input type="text" name="rate" placeholder="search rate"> <br>
+            <input type="submit" name = "empSearch" value="Search">
         </form>
     </aside>
     <section class="candidates-section">

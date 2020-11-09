@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\candidateController;
+use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Job;
@@ -41,16 +43,8 @@ Route::group(['prefix' => 'jobs'], function () {
     Route::get('/{id}',[JobController::class, 'show']);
 });
 
-Route::get('/employers',function(){
-    $employers = User::all()->whereIn('position','employer');
-    
-    return view('employers', ['employers'=>$employers]);
-});
-Route::get('/candidates',function(){
-    $candidates = User::all()->whereIn('position','candidate');
-    
-    return view('candidates', ['candidates'=>$candidates]);
-});
+Route::get('/employers',[EmployerController::class, 'index']);
+Route::get('/candidates',[candidateController::class, 'index']);
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/',[ProfileController::class, 'index'])->middleware('auth');
