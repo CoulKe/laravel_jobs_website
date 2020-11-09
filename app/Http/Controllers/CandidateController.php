@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class candidateController extends Controller
+class CandidateController extends Controller
 {
     public function index(Request $request)
     {

@@ -44,7 +44,7 @@ Route::group(['prefix' => 'jobs'], function () {
 });
 
 Route::get('/employers',[EmployerController::class, 'index']);
-Route::get('/candidates',[candidateController::class, 'index']);
+Route::get('/candidates',[CandidateController::class, 'index']);
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/',[ProfileController::class, 'index'])->middleware('auth');
