@@ -49,9 +49,10 @@
                 @endguest
                 @auth
                 <li>
-                    <a href="#" role="button">Profile</a>
+                    <a href="/profile" role="button">Profile</a>
+                </li>
 
-                    <div>
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -60,8 +61,8 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </div>
-                </li>
+                    </li>
+                
                 @endauth
             </ul>
         </div><!--compressed nav-->
