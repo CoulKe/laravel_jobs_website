@@ -20,39 +20,43 @@ nav {
   background-color: #a52a2a;
   height: 10vh;
   display: flex;
+  align-items: center;
+}
+nav .container {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 }
-nav a {
+nav .container a {
   text-decoration: none;
   color: #fff;
 }
-nav a:hover {
+nav .container a:hover {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
 }
-nav #site-title {
+nav .container #site-title {
   font-size: larger;
   font-weight: 600;
   padding-left: 8px;
 }
-nav #menu {
+nav .container #menu {
   padding-right: 8px;
   cursor: pointer;
 }
-nav #site-title:hover {
+nav .container #site-title:hover {
   cursor: pointer;
 }
-nav #cancelMenu {
+nav .container #cancelMenu {
   font-size: 24px;
   text-align: right;
   margin-right: 20px;
   padding: 4px;
   display: block;
 }
-nav #compressed-nav {
+nav .container #compressed-nav {
   position: absolute;
   display: none;
   flex-direction: column;
@@ -64,35 +68,35 @@ nav #compressed-nav {
   background-color: #000;
   z-index: 1;
 }
-nav #compressed-nav li {
+nav .container #compressed-nav li {
   padding: 4px;
 }
-nav #compressed-nav ul {
+nav .container #compressed-nav ul {
   list-style-type: none;
   margin-bottom: 0px;
 }
-nav #compressed-nav ul a {
+nav .container #compressed-nav ul a {
   color: #fff;
   font-weight: 400;
 }
-nav #compressed-nav ul a:hover {
+nav .container #compressed-nav ul a:hover {
   text-decoration: underline;
 }
-@media (min-width: 650px) {
-  nav nav {
+@media (min-width: 768px) {
+  nav .container nav {
     padding: 1rem;
   }
-  nav #cancelMenu {
+  nav .container #cancelMenu {
     display: none;
   }
-  nav #site-title {
+  nav .container #site-title {
     width: 20%;
     padding-left: 8px;
   }
-  nav #menu {
+  nav .container #menu {
     display: none;
   }
-  nav #compressed-nav {
+  nav .container #compressed-nav {
     position: static;
     display: flex !important;
     flex-direction: row;
@@ -103,18 +107,17 @@ nav #compressed-nav ul a:hover {
     justify-content: space-evenly;
     align-items: center;
   }
-  nav #compressed-nav ul {
+  nav .container #compressed-nav ul {
     display: flex;
     justify-content: space-between;
   }
-  nav #compressed-nav ul a {
+  nav .container #compressed-nav ul a {
     padding: 0.5rem;
   }
 }
 
 .container {
   width: 95%;
-  border: 2px solid red;
 }
 
 main {
