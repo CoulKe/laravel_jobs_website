@@ -16,6 +16,8 @@
 
 <body>
     <nav>
+        <div class="container">
+            
         <a href="/" id="site-title">Jobs Search</a>
         <img src="./images/hamburger.png" alt="menu" id="menu">
         <div id="compressed-nav">
@@ -66,6 +68,8 @@
                 @endauth
             </ul>
         </div><!--compressed nav-->
+    
+        </div>
     </nav>
     
     <main>

@@ -45,45 +45,47 @@
             </div>
         </div>
 
-        <div class="details_section container">
-            @if ($user->position === 'candidate')
-                <h1 id='rate'>Rate</h1>
-                @if ($user->rate > 0) {{ $user->rate }} @else  {!! $unlisted !!}  @endif
-            @endif
-
-            <h1 id="about">About</h1>
-            <p class="profile_bio"> {{ $user->about }} </p>
-
-            @if ($user->position === 'candidate')
-                <h1 id="skills">Skills</h1>
-                <p>{{ $user->skills }}</p>
-            @endif
-            <h1 id="contact">Contact</h1>
-            <p>Email: <a href="mailto: {{ $user->email }}">{{ $user->email }}</a> </p>
-
-            @if ($user->id === Auth::id())
-            <form method="POST" id="testify" class="testimonial_form">
-                @csrf
-                <legend>Testimonial form</legend>
-                <label for="Testimonial">Testimonial:</label> <br>
-                <textarea name="testimony" cols="30" rows="10"></textarea> <br>
-                <input type="submit" name="testimonial" value="Share testimonial">
-            </form>
-            @endif
-
-            @if ($user->id === Auth::id())
-            <form method="POST" action="" id="post_job" class="job_post_form">
-                @csrf
-                <legend>Fill this to post job</legend>
-                <label for="Company name">Company name:</label> <br>
-                <input type="text" name="company_name"> <br>
-                <label for="Skills required">Skills required:
-                    <span>(Separate them with commas)</span></label> <br>
-                <input type="text" name="skills_required"> <br>
-                <label for="Job description">Job description:</label> <br>
-                <textarea name="job_description" cols="30" rows="10"></textarea> <br>
-                <input type="submit" name="post_job" value="Post job">
-            @endif
+        <div class="container">
+            <div class="details_section container">
+                @if ($user->position === 'candidate')
+                    <h1 id='rate'>Rate</h1>
+                    @if ($user->rate > 0) {{ $user->rate }} @else  {!! $unlisted !!}  @endif
+                @endif
+    
+                <h1 id="about">About</h1>
+                <p class="profile_bio"> {{ $user->about }} </p>
+    
+                @if ($user->position === 'candidate')
+                    <h1 id="skills">Skills</h1>
+                    <p>{{ $user->skills }}</p>
+                @endif
+                <h1 id="contact">Contact</h1>
+                <p>Email: <a href="mailto: {{ $user->email }}">{{ $user->email }}</a> </p>
+    
+                @if ($user->id === Auth::id())
+                <form method="POST" id="testify" class="testimonial_form">
+                    @csrf
+                    <legend>Testimonial form</legend>
+                    <label for="Testimonial">Testimonial:</label> <br>
+                    <textarea name="testimony" cols="30" rows="10"></textarea> <br>
+                    <input type="submit" name="testimonial" value="Share testimonial">
+                </form>
+                @endif
+    
+                @if ($user->id === Auth::id())
+                <form method="POST" action="" id="post_job" class="job_post_form">
+                    @csrf
+                    <legend>Fill this to post job</legend>
+                    <label for="Company name">Company name:</label> <br>
+                    <input type="text" name="company_name"> <br>
+                    <label for="Skills required">Skills required:
+                        <span>(Separate them with commas)</span></label> <br>
+                    <input type="text" name="skills_required"> <br>
+                    <label for="Job description">Job description:</label> <br>
+                    <textarea name="job_description" cols="30" rows="10"></textarea> <br>
+                    <input type="submit" name="post_job" value="Post job">
+                @endif
+            </div>
         </div>
         @endforeach
  @endif

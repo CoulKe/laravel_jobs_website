@@ -112,6 +112,11 @@ nav #compressed-nav ul a:hover {
   }
 }
 
+.container {
+  width: 95%;
+  border: 2px solid red;
+}
+
 main {
   min-height: 52vh;
 }
