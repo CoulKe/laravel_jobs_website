@@ -21,6 +21,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     a {
         text-decoration: none;
@@ -62,6 +63,7 @@ nav {
         padding-top: 1rem;
         top: 0;
         background-color: #000;
+        z-index: 1;
         li {
             padding: 4px;
         }
@@ -455,7 +457,6 @@ footer {
     background-color: #000000;
     width: 100%;
     box-shadow: 0px 0px 4px #111111;
-    z-index: 1;
     text-align: center;
     ul {
         list-style-type: none;
