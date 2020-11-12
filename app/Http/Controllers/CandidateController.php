@@ -4,62 +4,46 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CandidateController extends Controller
 {
     public function index(Request $request)
     {
-        $prefix = '%';
-        $suffix = '%';
-
-        if ($request) {
+        if (!isset($request->skills) && !isset($request->rate)) {
             $candidates = User::where('position', 'candidate')
                 ->paginate(5);
-        }
-        if (!empty($request->skills) && empty($request->rate)) {
-            
+        } else {
             $keyword = $request->skills;
             //replace non word characters with space
             $keyword = preg_replace('/\W+/', ' ', $keyword);
             //split words into array
             $keyword = preg_split('/\W/', $keyword);
             //Join the array with % OR %
-            $keyword = join('% OR %', $keyword);
-            $keyword = $prefix . $keyword . $suffix;
+            $keyword = join("%' OR `skills` LIKE '%", $keyword);
 
-            $candidates = User::where('position', 'candidate')
-                ->where('users.skills', 'LIKE', $keyword)
-                ->paginate(5);
-        } elseif (!empty($request->rate) && empty($request->skills)) {
+            switch ($request) {
+                case isset($request->skills) && isset($request->rate):
+                    $candidates = User::where('position', 'candidate')
+                        ->where('rate', $request->rate)
+                        ->whereRaw('`skills` LIKE \'%' . $keyword . '%\'')
+                        ->paginate(5);
+                    break;
+                case !isset($request->skills) && isset($request->rate):
+                    $candidates = User::where('position', 'candidate')
+                        ->where('rate', $request->rate)
+                        ->paginate(5);
+                    break;
+                case isset($request->skills) && !isset($request->rate):
+                    $candidates = User::where('position', 'candidate')
+                        ->whereRaw('`skills` LIKE \'%' . $keyword . '%\'')
+                        ->paginate(5);
+                    break;
 
-            $keyword = $request->rate;
-            // Cast rate to integer
-            $keyword = intval($keyword);
-            $keyword = $prefix . $keyword . $suffix;
-
-            $candidates = User::where('position', 'candidate')
-                ->where('users.rate', 'LIKE', $keyword)
-                ->paginate(5);
+                default:
+                    break;
+            }
         }
-        else {
-            $keyword = $request->skills;
-            //replace non word characters with space
-            $keyword = preg_replace('/\W+/', ' ', $keyword);
-            //split words into array
-            $keyword = preg_split('/\W/', $keyword);
-            //Join the array with % OR %
-            $keyword = join('% OR %', $keyword);
-            $keyword = $prefix . $keyword . $suffix;
-            $rate = $request->rate;
-            $rate = intval($rate);
-            $rate = $prefix . $rate . $suffix;
 
-            $candidates = User::where('position', 'candidate')
-                ->where('users.rate', 'LIKE', $rate)
-                ->orWhere('users.skills','LIKE',$keyword)
-                ->paginate(5);
-        }
         return view('candidates', ['candidates' => $candidates]);
     }
 }
