@@ -18,7 +18,7 @@ window.onclick = function(event){
     if (event.target.id !== 'menu' && nav.style.display === 'flex'){
         nav.style.display = 'none';
         // When menu closes, refix the style
-        menu.style = 'height: 18px; width: 26;'
+        menu.style = 'height: 18px; width: 26px;'
     }
 
 }

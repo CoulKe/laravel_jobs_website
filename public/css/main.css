@@ -44,6 +44,8 @@ nav .container #site-title {
 }
 nav .container #menu {
   padding-right: 8px;
+  height: 18px;
+  width: 26px;
   cursor: pointer;
 }
 nav .container #site-title:hover {
