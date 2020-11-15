@@ -381,6 +381,11 @@ footer #copyright {
 #testimonials_section .carousel #right-arr {
   right: 0;
 }
+@media (max-width: 767px) {
+  #testimonials_section .carousel {
+    width: 100%;
+  }
+}
 #testimonials_section .testimony {
   display: none;
   justify-content: space-between;
@@ -410,6 +415,19 @@ footer #copyright {
   float: right;
   font-size: 50px;
   font-weight: 900;
+}
+@media (max-width: 767px) {
+  #testimonials_section .testimony {
+    display: flex;
+    flex-direction: column;
+  }
+  #testimonials_section .testimony-text {
+    width: 60%;
+  }
+  #testimonials_section .testimony-image {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .candidates-page {

@@ -383,6 +383,11 @@ footer {
         #right-arr {
             right: 0;
         }
+        @media(max-width: 767px){
+            &{
+                width: 100%;
+            }
+        }
     }
 
     .testimony {
@@ -416,6 +421,20 @@ footer {
             float: right;
             font-size: 50px;
             font-weight: 900;
+        }
+        
+        @media(max-width: 767px){
+            &{
+                display: flex;
+                flex-direction: column;
+                &-text{
+                    width: 60%;
+                }
+                &-image{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
         }
     }
 }
