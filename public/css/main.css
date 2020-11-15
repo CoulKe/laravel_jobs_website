@@ -587,6 +587,11 @@ footer #copyright {
   background-color: #a52a2a;
   border: none;
 }
+@media (max-width: 550px) {
+  .details_section {
+    width: 100%;
+  }
+}
 
 #edit_details_form {
   display: flex;

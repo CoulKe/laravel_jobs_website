@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'edit details')
+@section('title', $user->first()->name ?? '')
 
 @section('content')
 <div class="container">
