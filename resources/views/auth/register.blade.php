@@ -87,7 +87,9 @@
 
                             <div class="col-md-6">
                                 <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" name="position" value="{{ old('position') }}" required autocomplete="position" >
-
+                                {{-- <select name="position">
+                                    <option value="employer"></option>
+                                </select> --}}
                                 @error('position')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -15,6 +15,10 @@ a {
     text-align: center;
     width: 100%;
 }
+//pagination
+.w-5{
+    display: none;
+}
 body {
     overflow-x: hidden;
 }
@@ -508,6 +512,10 @@ footer {
         height: 100%;
         background-color: #fff;
         width: 100%;
+
+        #upload-profile{
+            display: none;
+        }
 
         .profile_pic {
             margin-top: 8px;

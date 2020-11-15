@@ -39,7 +39,12 @@
                     <input type="file" name="profile_pic"> <br>
                     <input type="submit" name="upload_pic" value="submit" id="submit">
                 </form>
-                <a href="file_upload" id="add-pic-link">Add profile picture</a> <br/>
+                @if ($user->profile_pic === '')
+                <a id="add-pic-link">Change profile picture</a>
+                @else
+                <a id="add-pic-link">Add profile picture</a>
+                @endif
+                <br/>
                 <a href="/profile/edit">edit details</a>
                 @endif
             </div>
@@ -88,5 +93,6 @@
         @endforeach
  @endif
 
+ <script src="js/upload_profile.js"></script>
 
 @endsection
