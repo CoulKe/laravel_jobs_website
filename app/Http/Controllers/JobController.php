@@ -30,12 +30,12 @@ class JobController extends Controller
                 
                 ->where('jobs.skills_required', 'LIKE', $keyword)
                 ->orWhere('jobs.description','LIKE',$keyword)
-                ->paginate(5);
+                ->paginate(2);
         } else {
             $jobs = DB::table('jobs')
                 ->join('users', 'user_id', '=', 'users.id')
                 ->select('*')
-                ->paginate(5);
+                ->paginate(2);
         }
 
         return view('jobs.index', [
