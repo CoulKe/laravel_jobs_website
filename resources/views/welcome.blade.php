@@ -47,7 +47,7 @@
 
             @auth
             <h1>You are logged in</h1>
-            <a href="register" id="create_link">See profile</a>
+            <a href="profile" id="create_link">See profile</a>
             @endauth
         </div>
     </section>
