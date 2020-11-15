@@ -27,9 +27,9 @@ class JobController extends Controller
             //Use keyword to search in jobs.skills_required and jobs.description
             $jobs = DB::table('jobs')
                 ->join('users', 'user_id', '=', 'users.id')
-                
+
                 ->where('jobs.skills_required', 'LIKE', $keyword)
-                ->orWhere('jobs.description','LIKE',$keyword)
+                ->orWhere('jobs.description', 'LIKE', $keyword)
                 ->paginate(2);
         } else {
             $jobs = DB::table('jobs')
@@ -42,9 +42,17 @@ class JobController extends Controller
             'jobs' => $jobs,
         ]);
     }
-    public function show($id)
+    public function show(Request $request)
     {
-        $job = Job::findOrFail($id);
-        return view('jobs.show', ['job' => $job]);
+        $collection = DB::table('jobs')
+            ->join('users', 'user_id', '=', 'users.id')
+            ->where('jobs.id', '=', $request->id)
+            ->first();
+        $job['name'] = $collection->name;
+        $job['company'] = $collection->company;
+        $job['description'] = $collection->description;
+        return view('jobs.show', [
+            'job' => $job
+        ]);
     }
 }
