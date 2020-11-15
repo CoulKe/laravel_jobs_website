@@ -23,7 +23,7 @@
                 <img src="/storage/user_images/{{$job->profile_pic ?? 'default.png' }}" class="job__image card-img-top" alt="{{ $job->name }}">
                 <div class="card-body text-left">
                     <div class="company_title">
-                        Company: <a href={{ "profile/.$job->username " }}> {{ $job->company }}</a>
+                        Company: <a href={{ "profile/$job->username " }}> {{ $job->company }}</a>
                     </div>
                     <div class="job__description">
                             Description:<br /> {{ $job->description }}

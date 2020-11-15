@@ -11,7 +11,7 @@
     
         <div class="job_card card m-4 pl-4 pt-4 col-md-5">
             <p class="company_name">
-                <strong><a href={{ "profile/".$job->username }}>
+                <strong><a href={{ "profile/$job->username" }}>
                 Company:</a></strong>{{ $job->company }}</p>
             <p class="job_description"><b>Description:</b>{{ $job->description }}</p>
         </div>
