@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <form action="" method="POST" id="edit_details_form" enctype="multipart/form-data">
+    <form action="" method="POST" id="edit_details_form" zenctype="multipart/form-data">
         @csrf
         <h1 class="title">Edit profile</h1>
         <label for="First name">First name: </label> <br>

@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+a {
+  color: #003780;
+}
+
 .non-existent {
   padding: 5px;
   text-align: center;
@@ -18,6 +22,7 @@ body {
 
 nav {
   background-color: #a52a2a;
+  color: #fff;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -410,7 +415,7 @@ footer #copyright {
 .candidates-page input:focus,
 .candidates-page textarea:focus {
   outline: none;
-  border: 1px solid #a52a2a;
+  border: 2px solid #a52a2a;
 }
 .candidates-page input[type=submit] {
   border: 1px solid #a52a2a;
@@ -530,70 +535,50 @@ footer #copyright {
   font-weight: 800;
   margin-bottom: 8px;
 }
-.profile .details_section {
-  padding-bottom: 1rem;
+
+.details_section {
+  width: 60%;
 }
-.profile .details_section legend {
+.details_section input:focus,
+.details_section textarea:focus {
+  outline: none;
+  border: 2px solid #a52a2a;
+}
+.details_section legend {
   font-weight: 700;
   font-size: 24px;
   display: block;
   padding-top: 2.5rem;
   text-align: center;
 }
-.profile .details_section label {
+.details_section label {
   font-size: larger;
 }
-.profile .details_section input,
-.profile .details_section textarea {
-  padding: 0.3rem;
-  margin: 8px 0px;
-}
-.profile .details_section textarea,
-.profile .details_section input[type=text] {
-  width: 90%;
-}
-.profile .details_section input[type=submit] {
-  width: 91.5%;
-}
-.profile .details_section p {
-  padding-left: 2rem;
-}
-.profile .details_section h1 {
+.details_section h1 {
   padding-top: 2.5rem;
 }
-.profile .details_section h1::before {
+.details_section h1::before {
   content: "#";
   color: #a52a2a;
   opacity: 0.3;
   padding: 4px;
 }
-.profile .details_section h1:hover::before {
+.details_section h1:hover::before {
   opacity: 0.8;
 }
-.profile .details_section .testimonial_form,
-.profile .details_section .job_post_form {
-  display: flex;
-  flex-direction: column;
+.details_section form {
+  margin-bottom: 1rem;
 }
-@media (min-width: 801px) {
-  .profile .details_section {
-    width: 800px;
-  }
+.details_section form input,
+.details_section form textarea {
+  width: 100%;
 }
-@media (max-width: 801px) {
-  .profile .details_section {
-    width: 100%;
-  }
-  .profile .details_section .testimonial_form input,
-.profile .details_section .testimonial_form textarea,
-.profile .details_section .job_post_form input,
-.profile .details_section .job_post_form textarea {
-    align-self: center;
-  }
-  .profile .details_section .testimonial_form label,
-.profile .details_section .job_post_form label {
-    padding-left: 1rem;
-  }
+.details_section form input[type=submit] {
+  padding: 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #a52a2a;
+  border: none;
 }
 
 #edit_details_form {
@@ -611,24 +596,38 @@ footer #copyright {
   font-weight: 400;
   display: block;
 }
+#edit_details_form input:focus,
+#edit_details_form textarea:focus {
+  outline: none;
+  border: 2px solid #a52a2a;
+}
+#edit_details_form input[type=submit] {
+  border: 1px solid #a52a2a;
+  color: #a52a2a;
+  background-color: #fff;
+  font-weight: 600;
+}
+#edit_details_form input[type=submit]:hover,
+#edit_details_form input[type=submit]:focus {
+  background-color: #a52a2a;
+  font-weight: 500;
+  color: #fff;
+  animation-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
 #edit_details_form input,
 #edit_details_form textarea {
   padding: 0.5rem;
 }
 #edit_details_form textarea {
-  max-width: 96%;
   max-height: 200px;
 }
 @media (max-width: 550px) {
   #edit_details_form {
-    width: 100vw;
-  }
-  #edit_details_form input,
-#edit_details_form textarea {
-    width: 80%;
+    width: 80vw;
   }
   #edit_details_form input[type=submit] {
-    width: 86%;
+    width: 100%;
   }
 }
 

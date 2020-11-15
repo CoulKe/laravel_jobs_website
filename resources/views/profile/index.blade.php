@@ -45,7 +45,6 @@
             </div>
         </div>
 
-        <div class="container">
             <div class="details_section container">
                 @if ($user->position === 'candidate')
                     <h1 id='rate'>Rate</h1>
@@ -86,7 +85,6 @@
                     <input type="submit" name="post_job" value="Post job">
                 @endif
             </div>
-        </div>
         @endforeach
  @endif
 
