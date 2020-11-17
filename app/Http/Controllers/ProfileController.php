@@ -28,21 +28,23 @@ class ProfileController extends Controller
     /**
      * Edit profile details
      */
-    public function edit(){
+    public function edit()
+    {
         $user = User::all()->where('id', Auth::id())->first();
-        return view('profile.edit',['user' => $user]);
+        return view('profile.edit', ['user' => $user]);
     }
     /**
      * Update profile details
      */
-    public function update(){
-        
+    public function update()
+    {
+
         $user = User::find(Auth::id());
         $user->update([
-                'name' => request('name'),
+            'name' => request('name'),
             'email' => request('email'),
             'about' => request('about'),
-            'rate' => request('rate'),
+            'rate' => intval(request('rate')),
             'skills' => request('skills'),
         ]);
         return redirect('/profile');
@@ -68,10 +70,10 @@ class ProfileController extends Controller
          * Post testimonial
          */
         if (isset($_POST['testimonial'])) {
-         $testify = new Testify();
-         $testify->user_id = Auth::id();
-         $testify->testimonial = request('testimony');
-         $testify->save();
+            $testify = new Testify();
+            $testify->user_id = Auth::id();
+            $testify->testimonial = request('testimony');
+            $testify->save();
         }
 
         /**
@@ -82,8 +84,8 @@ class ProfileController extends Controller
             $previous_image = User::find(Auth::id())->profile_pic;
 
             $extension = $request->file('profile_pic')->getClientOriginalExtension();
-            
-            $newFileName = Auth::user()->username.'_'.date('his').'.'.$extension;
+
+            $newFileName = Auth::user()->username . '_' . date('his') . '.' . $extension;
             $file = $request->file('profile_pic')->storeAs('public/user_images', $newFileName);
 
             if ($request->file('profile_pic')->isValid()) {
